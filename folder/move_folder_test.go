@@ -6,7 +6,6 @@ import (
 	"github.com/georgechieng-sc/interns-2022/folder"
 	"github.com/gofrs/uuid"
 	"github.com/stretchr/testify/assert"
-	"golang.org/x/tools/go/analysis/passes/assign"
 )
 
 // Setting up sample folders
@@ -30,7 +29,7 @@ func Test_folder_MoveFolder(t *testing.T) {
 	resultFolders, err := driver.MoveFolder("ben", "delta")
 
 	// Checking for no errors
-	assign.NoError(t, err, "no error but got: %v", err)
+	assert.NoError(t, err, "no error but got: %v", err)
 
 	// Verify that sydeny has been moved under delta
 	foundSydeny := false
